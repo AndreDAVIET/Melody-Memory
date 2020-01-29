@@ -1,0 +1,17 @@
+<div>
+    <p>{{challengeToShow?.name}}</p>
+    <p>Lancer le melody memory</p>
+    <button (click)='notePlayed()'>Lancer</button>
+    <div>
+        <button (click)="pushDO()">DO</button>
+        <button (click)="pushRE()">RE</button>
+        <button (click)="pushMI()">MI</button>
+        <button (click)="pushFA()">FA</button>
+        <button (click)="pushSOL()">SOL</button>
+        <button (click)="pushLA()">LA</button>
+        <button (click)="pushSI()">SI</button>
+    </div>
+    <button (click)='verificationSequence()'>Verifier la séquence</button>
+    <button (click)='resetSequence()'>Reset la séquence</button>
+    <button routerLink='/'>Retour</button>
+</div>
