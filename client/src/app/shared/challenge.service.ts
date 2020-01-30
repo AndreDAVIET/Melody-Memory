@@ -18,6 +18,13 @@ export class ChallengeService {
   mySol = new Audio(`../../assets/sol.mp3`);
   myLa = new Audio(`../../assets/la.mp3`);
   mySi = new Audio(`../../assets/si.mp3`);
+  myPetDo = new Audio(`../../assets/petdo.mp3`);
+  myPetRe = new Audio(`../../assets/petre.mp3`);
+  myPetMi = new Audio(`../../assets/petmi.mp3`);
+  myPetFa = new Audio(`../../assets/petfa.mp3`);
+  myPetSol = new Audio(`../../assets/petsol.mp3`);
+  myPetLa = new Audio(`../../assets/petla.mp3`);
+  myPetSi = new Audio(`../../assets/petsi.mp3`);
   challengeToShow : Challenge;
   connectedUser : User;
   difficultyToShow : boolean = true;
@@ -35,7 +42,6 @@ export class ChallengeService {
   }
 
   returnScore(connectedUser : User){
-    console.log(this.connectedUser)
     return this.http.get(`${this.baseUrl}/challenge/status/${connectedUser.id}/done`);
   }
 

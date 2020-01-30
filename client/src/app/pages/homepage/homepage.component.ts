@@ -19,6 +19,7 @@ export class HomepageComponent implements OnInit {
   connectedUser: User;
   difficultyEasy :boolean = true;
   scoreUser  ;
+  score ;
 
   constructor( 
     private challengeService : ChallengeService, 
@@ -30,11 +31,14 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.userService.loadUser().subscribe((result)  => {
       this.connectedUser = result;
-      this.verificationRole()});
+      this.verificationRole();
+      console.log(this.connectedUser)
+      this.getReturnScore()
+    });
+      
     this.getChallenge();
     this.difficultyEasy = this.challengeService.difficultyToShow;
-    this.challengeService.returnScore(this.connectedUser)
-
+    
   }
 
   getChallenge()
@@ -73,6 +77,15 @@ export class HomepageComponent implements OnInit {
     this.difficultyEasy =! this.difficultyEasy;
     this.challengeService.selectedDifficulty(this.difficultyEasy);
     }
+
+  getReturnScore(){
+    this.challengeService.returnScore(this.connectedUser).subscribe(result => {
+      this.score = result;
+      this.scoreUser = this.score[0]
+      console.log(this.scoreUser)
+    });
+    
+  }
 
 }
 
