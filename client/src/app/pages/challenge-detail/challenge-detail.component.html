@@ -1,17 +1,27 @@
-<div>
-    <p>{{challengeToShow?.name}}</p>
-    <p>Lancer le melody memory</p>
-    <button (click)='notePlayed()'>Lancer</button>
+<div class="challengeDetail">
     <div>
-        <button (click)="pushDO()">DO</button>
-        <button (click)="pushRE()">RE</button>
-        <button (click)="pushMI()">MI</button>
-        <button (click)="pushFA()">FA</button>
-        <button (click)="pushSOL()">SOL</button>
-        <button (click)="pushLA()">LA</button>
-        <button (click)="pushSI()">SI</button>
+        <h3>{{challengeToShow?.name}}</h3>
     </div>
-    <button (click)='verificationSequence()'>Verifier la séquence</button>
-    <button (click)='resetSequence()'>Reset la séquence</button>
-    <button routerLink='/'>Retour</button>
+    <div class='lancementMusique'>
+        <p>Lancer le melody memory :</p>
+        <button mat-raised-button (click)='notePlayed()'>Lancer</button>
+    </div>
+        <div class='noteButton' >
+            <button mat-raised-button (click)="pushDO()">DO</button>
+            <button mat-raised-button (click)="pushRE()">RE</button>
+            <button mat-raised-button (click)="pushMI()">MI</button>
+            <button mat-raised-button (click)="pushFA()">FA</button>
+            <button mat-raised-button (click)="pushSOL()">SOL</button>
+            <button mat-raised-button (click)="pushLA()">LA</button>
+            <button mat-raised-button (click)="pushSI()">SI</button>
+        </div>
+        <div class='buttonAutre'>
+            <button mat-raised-button (click)='verificationSequence()'>Verifier la séquence</button>
+            <button mat-raised-button (click)='resetSequence()'>Reset la séquence</button>
+            <button mat-raised-button (click)='disabledAstuce()' disabled={{MusiqueLaunch}}>Afficher une astuce</button>
+            <button mat-raised-button routerLink='/gamepage'>Retour</button>
+        </div>
+        <div *ngIf="astuceATrouver">
+            Astuce : il y a {{astuceFind}} note à trouver !
+        </div>
 </div>

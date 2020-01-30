@@ -1,0 +1,35 @@
+.desktopVersion{
+    background-color: #EE964B;
+    color: #dbdcdf;
+}
+.menu{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0%;
+    padding: 0px;
+}
+
+.logout{
+    border: 1px solid black;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+.connexion{
+    border: solid 2px #dbdcdf;
+    border-radius: 10px;
+    padding: 4px 4px 4px 4px;
+}
+
+img{
+    cursor: pointer;
+    height: 68px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: -4px;
+}
+

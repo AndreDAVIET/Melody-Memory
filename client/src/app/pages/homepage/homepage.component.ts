@@ -3,6 +3,7 @@ import { Challenge } from 'src/app/shared/challenge';
 import { ChallengeService } from '../../shared/challenge.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
+import { AuthService } from 'src/app/shared/auth.service';
 
 
 @Component({
@@ -13,23 +14,24 @@ import { UserService } from 'src/app/shared/user.service';
 export class HomepageComponent implements OnInit {
 
   challenges : Challenge [];
+  disabledAdmin = true;
 
   constructor( 
     private challengeService : ChallengeService, 
     private router : Router,
-    private userService : UserService
+    private userService : UserService,
+    private authService : AuthService
     ) { }
 
   ngOnInit() {
     this.getChallenge();
-    
+    this.verificationRole();
   }
 
   getChallenge()
   {
     this.challenges = [];
     this.challenges = this.challengeService.getAll();
-    console.log(this.challenges)
   }
 
   onClickedChallenge(challenge){
@@ -41,8 +43,16 @@ export class HomepageComponent implements OnInit {
     this.challengeService.deletedChallenge(challenge);
   }
 
-  onModeDifficile(){
 
+  verificationRole(){
+    if ( this.userService.connectedUser.role == 'membre'){
+      console.log("membre")
+      this.disabledAdmin = false
+    }
+    else{
+      console.log("admin")
+      this.disabledAdmin = true
+    }
   }
 
 }

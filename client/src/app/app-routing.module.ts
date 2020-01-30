@@ -3,10 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ChallengeDetailComponent } from './pages/challenge-detail/challenge-detail.component';
 import { FormulaireComponent } from './pages/formulaire/formulaire.component';
-
+import { LandingpageComponent } from './pages/landingpage/landingpage.component';
 
 const routes: Routes = [
-  { path : '', component : HomepageComponent},
+  { path: '', component : LandingpageComponent},
+  { path : 'gamepage', component : HomepageComponent},
   { path: ':challengeId/details', component : ChallengeDetailComponent },
   { path: 'formulaire', component : FormulaireComponent},
 ];

@@ -1,0 +1,33 @@
+h2{
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    font-family: "malvie"
+}
+
+.paraBienvenue{
+    text-align: justify;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-family: "malvie";
+    font-size: 24px;
+}
+
+.buttonPlay{
+    text-align: center;
+    margin-top: 24px;
+}
+
+.blocBienvenue{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    font-family: "malvie";
+    font-size: 24px;
+}
+
+@font-face{
+    font-family: "malvie";
+    src: url(";./../../../../assets/Malvie.otf") format('truetype');
+}

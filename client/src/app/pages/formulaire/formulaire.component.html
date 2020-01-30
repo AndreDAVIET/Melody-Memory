@@ -1,26 +1,43 @@
-<div>
-    <p>S'enregistrer</p>
-    <form [formGroup]="userForm" (ngSubmit)="inscriptionUser()"> 
-        <div>
-                <label>Pseudo</label>
-                <input formControlName="pseudo">
-                <label>Password</label>
-                <input formControlName="password">
-                <button type="submit" [disabled]="!userForm.valid">S'inscrire</button>
-        </div>
-    </form>
-</div>
-<hr>
-<p>OU</p>
-<div>
-    <h3>Se connecter</h3>
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <label>Pseudo</label>
-            <input formControlName="pseudo" required/>
-            <label>Mot de passe</label>
-            <input formControlName="password" type="password" required/> 
-        <div>          
-            <button type="submit">Se connecter</button>
-        </div>         
-    </form>
+<div class='formTotal'>
+    <mat-card class="example-card">
+        <h3>S'enregistrer</h3>
+        <form [formGroup]="userForm" (ngSubmit)="inscriptionUser()"> 
+            <div class="formRegister">
+                    <div class="divInterne">
+                        <label class='labelPetit'>Pseudo :</label>
+                        <input formControlName="pseudo">
+                    </div>
+                    <div class="divInterne">
+                        <label>Password :</label>
+                        <input formControlName="password">
+                    </div>
+                    <div class="divInterne">
+                        <button mat-raised-button type="submit" [disabled]="!userForm.valid">S'inscrire</button>
+                    </div>
+            </div>
+        </form>
+    </mat-card>
+    <div class="formRegister">
+
+            <p>OU</p>
+
+    </div>
+    <mat-card class="example-card">
+        <h3>Se connecter</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="formRegister">
+                    <div class="divInterne">   
+                        <label class='labelPetit'>Pseudo :</label>
+                        <input formControlName="pseudo" required/>
+                    </div>
+                    <div class="divInterne">   
+                        <label>Password :</label>
+                        <input formControlName="password" type="password" required/> 
+                    </div>
+                    <div class="divInterne">          
+                        <button mat-raised-button type="submit">Se connecter</button>
+                    </div>
+            </div>      
+        </form>
+    </mat-card>
 </div>

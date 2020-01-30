@@ -14,6 +14,10 @@ import { ChallengePerduComponent } from './component/challenge-perdu/challenge-p
 import { FormulaireComponent } from './pages/formulaire/formulaire.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth-interceptor';
+import { LandingpageComponent } from './pages/landingpage/landingpage.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +28,7 @@ import { AuthInterceptor } from './shared/auth-interceptor';
     ChallengeReussiComponent,
     ChallengePerduComponent,
     FormulaireComponent,
+    LandingpageComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,9 @@ import { AuthInterceptor } from './shared/auth-interceptor';
     MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    
   ],
   providers: [
     {

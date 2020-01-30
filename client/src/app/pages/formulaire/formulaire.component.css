@@ -1,0 +1,41 @@
+.formTotal{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    margin-top: 72px;
+}
+
+.example-card {
+    max-width: 400px;
+    margin-top: 48px;
+    margin: auto;
+}
+
+h3{
+    text-align: center;
+}
+
+.formRegister{
+    display: flex;
+    height: 150px;
+    flex-direction: column;
+    margin-bottom: 48px;
+    margin: auto;
+}
+
+.divInterne{
+    height: 30%;
+    text-align: center;
+}
+
+.labelPetit{
+    margin-right: 16px;
+}
+
+@media (max-width: 850px){
+    
+    .formTotal{
+        flex-direction: column
+    }
+};

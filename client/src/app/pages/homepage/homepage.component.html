@@ -1,9 +1,15 @@
-<div *ngFor='let challenge of challenges'>
-    <p>{{challenge.name}}</p>
-    <button (click)="onClickedChallenge(challenge)">Go</button>
-    <button (click)="onDeletedChallenge(challenge)">Supprimer</button>
-</div>
-<div>
-    <button (click)='onModeFacile()'>Mode facile</button>
-    <button (click)='onModeDifficile()'  >Mode difficile</button>
+<div class="gamePage">
+    <p>Bienvenue {{ userService?.connectedUser.pseudo }} sur votre page de jeu. <br/>
+        Vous êtes {{ userService?.connectedUser.role }}</p>
+
+    <mat-card *ngFor='let challenge of challenges'>
+        <p>{{challenge.name}}</p>
+        <button mat-raised-button class="allButton" (click)="onClickedChallenge(challenge)">Go</button>
+        <button (click)="onDeletedChallenge(challenge)" *ngIf=disabledAdmin >Supprimer</button>
+    </mat-card>
+    <div>
+    <!--     <button (click)='onModeFacile()'>Mode facile</button>
+        <button (click)='onModeDifficile()'>Mode difficile</button>
+        <button display="disabledAdmin">test</button> -->
+    </div>
 </div>

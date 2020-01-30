@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
-import { AuthService } from './auth.service';
-
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private baseUrl: string =  "http://localhost:3000";
 
-  private baseUrl = "http://localhost:3000";
-  offline: boolean = true;
   connectedUser: User;
+  offline: boolean = true;
 
   constructor(
     private http: HttpClient,
@@ -22,7 +21,7 @@ export class UserService {
     if (this.authService.getToken()) {
       this.loadUser().subscribe(result => {
         this.connectedUser = result;
-        console.log("Connected user", this.connectedUser);
+        this.offline = false;
       });
     }
   }
@@ -31,7 +30,7 @@ export class UserService {
    * Load the user from the api. Store it in the user service.
    */
   loadUser(): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/me`)
+    return this.http.get<User>(`${this.baseUrl}/users/me`)
       .pipe(
         tap(result => {
           this.connectedUser = this.connectedUser;
@@ -42,5 +41,12 @@ export class UserService {
   addUser(user): Observable<any>{
     return this.http.post<any>(`${this.baseUrl}/auth/register`, user);
   };
+
+  disconnectedUser(){
+    this.connectedUser =  undefined;
+    this.offline= true;
+  }
+
+
 };
 

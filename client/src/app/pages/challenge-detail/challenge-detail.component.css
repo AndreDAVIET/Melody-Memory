@@ -1,0 +1,40 @@
+.challengeDetail{
+    width: 80%;
+    margin: 0 auto;
+    font-family: "malvie";
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    height : 600px;
+    justify-content: space-around;
+}
+
+h3{
+    text-align: center;
+}
+
+@font-face{
+    font-family: "malvie";
+    src: url(";./../../../../assets/Malvie.otf") format('truetype');
+}
+
+.lancementMusique{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+.mat-raised-button{
+    margin-left: 20px;
+    margin-right: 20px;
+}    
+
+.noteButton{
+    margin : 0 auto;
+}
+
+.buttonAutre{
+    margin : 0 auto;
+}

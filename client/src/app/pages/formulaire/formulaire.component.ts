@@ -38,7 +38,6 @@ export class FormulaireComponent implements OnInit {
       password : this.userForm.value.password,     
       role : 'membre', 
       }
-      console.log(newUser)
       this.userService.addUser(newUser).subscribe(
         result=>{
           console.log(result)
@@ -50,6 +49,8 @@ export class FormulaireComponent implements OnInit {
   login() {
     const pseudo = this.loginForm.value.pseudo;
     const password = this.loginForm.value.password;
+    console.log(pseudo),
+    console.log(password)
 
     this.authService.login(pseudo, password)
       .subscribe(
@@ -57,7 +58,7 @@ export class FormulaireComponent implements OnInit {
           // success callback
           // load connected user profile and redirect to the list of posts
           this.userService.loadUser().subscribe(result => {
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('gamepage');
           })
         },
         error => {

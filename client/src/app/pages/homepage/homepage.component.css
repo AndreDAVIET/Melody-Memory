@@ -1,0 +1,29 @@
+.gamePage{
+    width: 80%;
+    margin: 0 auto;
+    font-family: "malvie";
+    font-size: 32px;
+    text-align: justify;
+    margin: auto;
+}
+
+p{
+    text-align: center;
+}
+
+@font-face{
+    font-family: "malvie";
+    src: url(";./../../../../assets/Malvie.otf") format('truetype');
+}
+
+.mat-card{
+    font-family: "malvie";
+    font-size: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.allButton{
+    background-color: #1C222B;
+    color: #B9BBB5;
+  }

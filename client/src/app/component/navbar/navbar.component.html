@@ -1,14 +1,18 @@
 <nav class="desktopVersion">
-    <ul>
+    <ul class="menu">
         <li>
-            <p>LOGO</p>
+                <img src="../../../assets/logomelody.JPG" alt="logo">
         </li>
         <li>
-            <p>MELODY MEMORY</p>
+            <h1>MELODY MEMORY</h1>
         </li>
         <li>
-            <p routerLink='/formulaire'>Se Connecter</p>
+            <div class='logout'*ngIf="userService.connectedUser">
+                <button mat-raised-button (click)="logout()">Logout</button>
+            </div>
         </li>
+
     </ul>
+
 </nav>
 <!--Desktop version-->

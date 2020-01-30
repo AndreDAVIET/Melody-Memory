@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,8 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private authService : AuthService
+    private authService : AuthService,
+    private userService : UserService,
   ) { }
 
   ngOnInit() {
@@ -17,6 +19,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    this.userService.disconnectedUser();
   }
 
 }

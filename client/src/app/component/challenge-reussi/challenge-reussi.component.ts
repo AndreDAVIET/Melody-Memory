@@ -17,7 +17,7 @@ export class ChallengeReussiComponent implements OnInit {
   close()
   {
     this.dialogRef.close();
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl('/gamepage')
   }
 
 }

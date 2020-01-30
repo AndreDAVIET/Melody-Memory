@@ -21,6 +21,9 @@ export class ChallengeDetailComponent implements OnInit {
   noteplayed = [];
   test;
   connectedUser: User;
+  astuceFind :number = 0;
+  MusiqueLaunch : boolean = true;
+  astuceATrouver : boolean = false;
 
   constructor( 
     private route: ActivatedRoute, 
@@ -94,37 +97,55 @@ export class ChallengeDetailComponent implements OnInit {
   async notePlayed(){
     this.test =  this.challengeToShow.melodie.split(' ');
     console.log(this.test)
+    this.MusiqueLaunch = !this.MusiqueLaunch;
     for ( let i = 0; i < this.test.length; i++){
       if (this.test[i] == 'do'){
+        console.log(i)
         this.challengeService.myDo.play();
-        await this.sleep(500);
+        await this.sleep(650);
+        this.astuceFind = this.astuceFind +1
       }
       if (this.test[i] == 're'){
+        console.log(i)
         this.challengeService.myRe.play();
-        await this.sleep(500);
+        await this.sleep(650);
+        this.astuceFind = this.astuceFind +1
       }
       if (this.test[i] == 'mi'){
+        console.log(i)
         this.challengeService.myMi.play();
-        await this.sleep(500);
+        await this.sleep(650);
+        this.astuceFind = this.astuceFind +1
       }
       if (this.test[i] == 'fa'){
+        console.log(i)
         this.challengeService.myFa.play();
-        await this.sleep(500);
+        await this.sleep(650);
+        this.astuceFind = this.astuceFind +1
       }
       if (this.test[i] == 'sol'){
+        console.log(i)
         this.challengeService.mySol.play();
-        await this.sleep(500);
+        await this.sleep(650);
+        this.astuceFind = this.astuceFind +1
       }
       if (this.test[i] == 'la'){
+        console.log(i)
         this.challengeService.myLa.play();
-        await this.sleep(500);
+        await this.sleep(650);
+        this.astuceFind = this.astuceFind +1
       }
       if (this.test[i] == 'si'){
+        console.log(i)
         this.challengeService.mySi.play();
-        await this.sleep(500);
+        await this.sleep(650);
+        this.astuceFind = this.astuceFind +1
       }
-     
     }
+  }
+
+  disabledAstuce(){
+    this.astuceATrouver = true
   }
 
 }
