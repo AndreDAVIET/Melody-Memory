@@ -18,6 +18,7 @@ export class HomepageComponent implements OnInit {
   disabledAdmin = true;
   connectedUser: User;
   difficultyEasy :boolean = true;
+  scoreUser  ;
 
   constructor( 
     private challengeService : ChallengeService, 
@@ -32,6 +33,8 @@ export class HomepageComponent implements OnInit {
       this.verificationRole()});
     this.getChallenge();
     this.difficultyEasy = this.challengeService.difficultyToShow;
+    this.challengeService.returnScore(this.connectedUser)
+
   }
 
   getChallenge()

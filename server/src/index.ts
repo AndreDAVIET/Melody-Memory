@@ -5,6 +5,7 @@ import { ChallengeController } from './controller/challenge.controller';
 import express from 'express';
 
 import loaders from './loaders';
+import { StatusController } from './controller/status.controller';
 
 
 
@@ -20,6 +21,7 @@ async function startServer() {
   PostsController(app);
   UsersController(app);
   ChallengeController(app);
+  StatusController(app);
 
   
     // Démarrage du serveur une fois que tout est correctement init

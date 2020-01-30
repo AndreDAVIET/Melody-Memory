@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Challenge } from '../shared/challenge';
 import { Observable } from 'rxjs';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,9 @@ export class ChallengeService {
   myLa = new Audio(`../../assets/la.mp3`);
   mySi = new Audio(`../../assets/si.mp3`);
   challengeToShow : Challenge;
+  connectedUser : User;
   difficultyToShow : boolean = true;
+  scoreUser ;
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +32,11 @@ export class ChallengeService {
       value => this.searchedChallenge.push(value)
     ));   
     return this.searchedChallenge;
+  }
 
+  returnScore(connectedUser : User){
+    console.log(this.connectedUser)
+    return this.http.get(`${this.baseUrl}/challenge/status/${connectedUser.id}/done`);
   }
 
   selectedChallenge(challengeId: number)
@@ -63,6 +70,10 @@ export class ChallengeService {
   addChallenge(challenge): Observable<any>{
     return this.http.post<any>(`${this.baseUrl}/challenge`, challenge);
   };
+
+  getStatusOK(challengeId,userId){
+    return this.http.post<any>(`${this.baseUrl}/challenge/status`, challengeId,userId);
+  }
 
   returnDifficulty(){
     

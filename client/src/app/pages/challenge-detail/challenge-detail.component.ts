@@ -25,23 +25,28 @@ export class ChallengeDetailComponent implements OnInit {
   MusiqueLaunch : boolean = true;
   astuceATrouver : boolean = false;
   difficultyToShow : boolean;
+  challengeId : number;
+  userId : number;
 
   constructor( 
     private route: ActivatedRoute, 
     private challengeService : ChallengeService,
     public dialog: MatDialog,
+    private userService :UserService,
+
     ) { }
 
   ngOnInit() {
     this.getChallengeToShow(this.route.snapshot.params.challengeId);
     this.difficultyToShow = this.challengeService.difficultyToShow;
-    console.log(this.difficultyToShow)
+    this.userService.loadUser().subscribe((result)  => {
+      this.connectedUser = result;});
   }
 
   getChallengeToShow(challengeId: number)
   {
     this.challengeService.selectedChallenge(challengeId).subscribe(result => {
-      this.challengeToShow = result;
+      this.challengeToShow = result;;
     });
   }
 
@@ -56,9 +61,16 @@ export class ChallengeDetailComponent implements OnInit {
     console.log(this.notePushJoin)
     if ( this.notePushJoin == this.challengeToShow.sequence){
       this.dialog.open(ChallengeReussiComponent)
+      this.challengeId = this.challengeToShow.id;
+      this.userId = this.connectedUser.id;
+      console.log(this.challengeId);
+      console.log(this.userId);
+      this.challengeService.getStatusOK(this.challengeId, this.userId)
     }
     else{
       this.dialog.open(ChallengePerduComponent)
+      console.log(this.challengeToShow)
+      console.log(this.connectedUser)
     }
     this.notePush = [];
 
