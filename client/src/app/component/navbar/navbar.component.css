@@ -33,3 +33,11 @@ img{
     margin-bottom: -4px;
 }
 
+@font-face{
+    font-family: "malvie";
+    src: url(";./../../../../assets/Malvie.otf") format('truetype');
+}
+
+h1{
+    font-family: "malvie";
+}

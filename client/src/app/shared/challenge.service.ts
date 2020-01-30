@@ -17,8 +17,8 @@ export class ChallengeService {
   mySol = new Audio(`../../assets/sol.mp3`);
   myLa = new Audio(`../../assets/la.mp3`);
   mySi = new Audio(`../../assets/si.mp3`);
-
-  
+  challengeToShow : Challenge;
+  difficultyToShow : boolean = true;
 
   constructor(private http: HttpClient) { }
 
@@ -35,12 +35,37 @@ export class ChallengeService {
   selectedChallenge(challengeId: number)
   {
     return this.http.get<Challenge>(`${this.baseUrl}/challenge/${challengeId}`);
-
   }
 
-  deletedChallenge(challenge){
-    console.log(challenge.id)
-      this.http.delete<Challenge>(`${this.baseUrl}/challenge/${challenge.id}`).subscribe(result => result);
+
+  selectedArmy(challenge)
+  {
+    this.challengeToShow = challenge;
+    return this.challengeToShow;
+  }
+
+  selectedDifficulty(difficultyEasy){
+    this.difficultyToShow = difficultyEasy;
+    return this.difficultyToShow;
+  }
+
+
+  deletedChallenge(challengeToShow){
+    console.log(challengeToShow.id)
+      this.http.delete<Challenge>(`${this.baseUrl}/challenge/${challengeToShow.id}`).subscribe(result => result);
+  }
+
+  modifyChallenge(challengeToShow){
+    console.log(challengeToShow.id)
+    this.http.put<Challenge>(`${this.baseUrl}/challenge/${challengeToShow.id}`, challengeToShow ).subscribe(result => result)
+  }
+
+  addChallenge(challenge): Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}/challenge`, challenge);
+  };
+
+  returnDifficulty(){
+    
   }
 
 }

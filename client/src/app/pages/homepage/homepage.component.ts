@@ -4,6 +4,7 @@ import { ChallengeService } from '../../shared/challenge.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
 import { AuthService } from 'src/app/shared/auth.service';
+import { User } from 'src/app/shared/user';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class HomepageComponent implements OnInit {
 
   challenges : Challenge [];
   disabledAdmin = true;
+  connectedUser: User;
+  difficultyEasy :boolean = true;
 
   constructor( 
     private challengeService : ChallengeService, 
@@ -24,8 +27,11 @@ export class HomepageComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.userService.loadUser().subscribe((result)  => {
+      this.connectedUser = result;
+      this.verificationRole()});
     this.getChallenge();
-    this.verificationRole();
+    this.difficultyEasy = this.challengeService.difficultyToShow;
   }
 
   getChallenge()
@@ -39,13 +45,18 @@ export class HomepageComponent implements OnInit {
     this.router.navigate([`/${challengeId}/details`]);
   }
 
-  onDeletedChallenge(challenge){
-    this.challengeService.deletedChallenge(challenge);
+  onModifyChallenge(challenge){
+    this.challengeService.selectedArmy(challenge);
+    this.router.navigate([`/modify`]);
   }
 
+  onDeleteChallenge(challenge){
+    this.challengeService.selectedArmy(challenge);
+    this.router.navigate([`/delete`]);
+  }
 
   verificationRole(){
-    if ( this.userService.connectedUser.role == 'membre'){
+    if ( this.connectedUser.role == 'membre'){
       console.log("membre")
       this.disabledAdmin = false
     }
@@ -55,4 +66,11 @@ export class HomepageComponent implements OnInit {
     }
   }
 
+  getDifficulty(){
+    this.difficultyEasy =! this.difficultyEasy;
+    this.challengeService.selectedDifficulty(this.difficultyEasy);
+    }
+
 }
+
+

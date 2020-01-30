@@ -11,18 +11,12 @@ import { User } from './user';
 export class AuthService {
 
   private baseUrl = "http://localhost:3000";
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+
+
+
 
   constructor(private http: HttpClient, private router: Router) { 
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
   }
-
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
-}
-
   /**
    * Make the api call for the authentification.
    * Store credentials (token and pseudo) into localstorage.
@@ -30,11 +24,8 @@ export class AuthService {
    * @param password user password
    */
   login(pseudo: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/auth/login`, {
-      pseudo,
-      password
-    }).pipe(
-      tap(results => {
+    return this.http.post(`${this.baseUrl}/auth/login`, { pseudo,password })
+      .pipe( tap(results => {
         if (results) {
           this.storeCredentials(results);
         }

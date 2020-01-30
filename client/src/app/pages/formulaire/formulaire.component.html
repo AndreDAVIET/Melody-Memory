@@ -3,14 +3,14 @@
         <h3>S'enregistrer</h3>
         <form [formGroup]="userForm" (ngSubmit)="inscriptionUser()"> 
             <div class="formRegister">
-                    <div class="divInterne">
-                        <label class='labelPetit'>Pseudo :</label>
-                        <input formControlName="pseudo">
-                    </div>
-                    <div class="divInterne">
-                        <label>Password :</label>
-                        <input formControlName="password">
-                    </div>
+                    <mat-form-field  appearance="outline" hintLabel="Min 4 characters">
+                        <mat-label>Pseudo* :</mat-label>
+                        <input matInput minlength="4" formControlName="pseudo">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" hintLabel="Min 4 characters">
+                        <mat-label>Password* :</mat-label>
+                        <input matInput minlength="4" formControlName="password">
+                    </mat-form-field>
                     <div class="divInterne">
                         <button mat-raised-button type="submit" [disabled]="!userForm.valid">S'inscrire</button>
                     </div>
@@ -26,17 +26,15 @@
         <h3>Se connecter</h3>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="formRegister">
-                    <div class="divInterne">   
-                        <label class='labelPetit'>Pseudo :</label>
-                        <input formControlName="pseudo" required/>
-                    </div>
-                    <div class="divInterne">   
-                        <label>Password :</label>
-                        <input formControlName="password" type="password" required/> 
-                    </div>
-                    <div class="divInterne">          
-                        <button mat-raised-button type="submit">Se connecter</button>
-                    </div>
+                <mat-form-field  appearance="outline" hintLabel="Min 4 characters">
+                    <mat-label>Pseudo* :</mat-label>
+                    <input matInput minlength="4" formControlName="pseudo">
+                </mat-form-field>
+                <mat-form-field appearance="outline" hintLabel="Min 4 characters">
+                    <mat-label>Password* :</mat-label>
+                    <input matInput minlength="4" formControlName="password">
+                </mat-form-field>   
+                <button mat-raised-button type="submit">Se connecter</button>
             </div>      
         </form>
     </mat-card>

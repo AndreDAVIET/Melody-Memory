@@ -1,13 +1,13 @@
 <nav class="desktopVersion">
     <ul class="menu">
         <li>
-                <img src="../../../assets/logomelody.JPG" alt="logo">
+            <a routerLink=""><div class="logo"><img src="../../../assets/logomelody.JPG" alt="logo"></div></a>    
         </li>
         <li>
             <h1>MELODY MEMORY</h1>
         </li>
         <li>
-            <div class='logout'*ngIf="userService.connectedUser">
+            <div class='logout'*ngIf="userService.buttonLog">
                 <button mat-raised-button (click)="logout()">Logout</button>
             </div>
         </li>

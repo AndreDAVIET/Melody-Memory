@@ -17,6 +17,11 @@ import { AuthInterceptor } from './shared/auth-interceptor';
 import { LandingpageComponent } from './pages/landingpage/landingpage.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { ModifychallengeComponent } from './pages/modifychallenge/modifychallenge.component';
+import { AddchallengeComponent } from './pages/addchallenge/addchallenge.component';
+import { DeletechallengeComponent } from './pages/deletechallenge/deletechallenge.component';
+import { InscriptionOKComponent } from './component/inscription-ok/inscription-ok.component';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -29,6 +34,10 @@ import {MatCardModule} from '@angular/material/card';
     ChallengePerduComponent,
     FormulaireComponent,
     LandingpageComponent,
+    ModifychallengeComponent,
+    AddchallengeComponent,
+    DeletechallengeComponent,
+    InscriptionOKComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +49,7 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
     
   ],
   providers: [
@@ -50,6 +60,6 @@ import {MatCardModule} from '@angular/material/card';
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ ChallengeReussiComponent, ChallengePerduComponent],
+  entryComponents: [ ChallengeReussiComponent, ChallengePerduComponent, InscriptionOKComponent],
 })
 export class AppModule { }

@@ -1,0 +1,33 @@
+<h2>Modifier un Challenge</h2>
+<mat-card class="example-card">
+    <form [formGroup]="modifyForm" (ngSubmit)="modifyChallenge(challengeToShow)"> 
+        <div class="formRegister">
+                <div class="divInterne">
+                    <label class='labelPetit'>Nom du challenge :</label>
+                    <input formControlName="name" [(ngModel)]="challengeToShow.name">
+                </div>
+                <div class="divInterne">
+                    <label class='labelPetit'>Sequence :</label>
+                    <input formControlName="sequence" [(ngModel)]="challengeToShow.sequence">
+                </div>
+                <div class="divInterne">
+                        <label class='labelPetit'>Melodie :</label>
+                        <input formControlName="melodie" [(ngModel)]="challengeToShow.melodie">
+                </div>
+                <div class="divInterne">
+                    <button mat-raised-button type="submit" [disabled]="!modifyForm.valid">Modifier un Challenge</button>
+                    <button mat-raised-button routerLink='/gamepage'>Retour</button>
+                </div>
+        </div>
+    </form>
+</mat-card>
+
+
+
+
+
+
+
+
+
+

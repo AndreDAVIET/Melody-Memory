@@ -26,4 +26,13 @@ p{
 .allButton{
     background-color: #1C222B;
     color: #B9BBB5;
-  }
+}
+
+.buttonDifficulty{
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.ajout{
+    text-align: center;
+}

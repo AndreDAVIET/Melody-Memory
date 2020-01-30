@@ -65,7 +65,7 @@ export class ChallengeRepository {
      */
     update(challenge: Challenge, id : number) {
       return this.connection.query(
-        `UPDATE ${this.table} SET name = ?, sequence = ? melodie = ? WHERE id = ?`,
+        `UPDATE ${this.table} SET name = ?, sequence = ?, melodie = ? WHERE id = ?`,
         [challenge.name, challenge.sequence,challenge.melodie, id]
       ).then(() => {
         return this.findById(id);

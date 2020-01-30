@@ -10,9 +10,10 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   private baseUrl: string =  "http://localhost:3000";
-
-  connectedUser: User;
+;
   offline: boolean = true;
+  public connectedUser : User;
+  buttonLog : boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -31,11 +32,6 @@ export class UserService {
    */
   loadUser(): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/users/me`)
-      .pipe(
-        tap(result => {
-          this.connectedUser = this.connectedUser;
-        })
-      );
   }
 
   addUser(user): Observable<any>{
@@ -46,7 +42,6 @@ export class UserService {
     this.connectedUser =  undefined;
     this.offline= true;
   }
-
 
 };
 

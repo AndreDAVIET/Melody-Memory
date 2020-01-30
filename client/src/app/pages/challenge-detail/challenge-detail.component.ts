@@ -24,6 +24,7 @@ export class ChallengeDetailComponent implements OnInit {
   astuceFind :number = 0;
   MusiqueLaunch : boolean = true;
   astuceATrouver : boolean = false;
+  difficultyToShow : boolean;
 
   constructor( 
     private route: ActivatedRoute, 
@@ -33,6 +34,8 @@ export class ChallengeDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getChallengeToShow(this.route.snapshot.params.challengeId);
+    this.difficultyToShow = this.challengeService.difficultyToShow;
+    console.log(this.difficultyToShow)
   }
 
   getChallengeToShow(challengeId: number)
@@ -63,31 +66,66 @@ export class ChallengeDetailComponent implements OnInit {
 
   pushDO(){
     this.notePush.push('do')
-    this.challengeService.myDo.play();
+    if (this.difficultyToShow == true){
+      this.challengeService.myDo.play();
+    }
+    else{
+      return
+    }
   }
   pushRE(){
     this.notePush.push('re')
-    this.challengeService.myRe.play();
+    if (this.difficultyToShow == true){
+      this.challengeService.myRe.play();
+    }
+    else{
+      return
+    }
   }
   pushMI(){
     this.notePush.push('mi')
-    this.challengeService.myMi.play();
+    if (this.difficultyToShow == true){
+      this.challengeService.myMi.play();
+    }
+    else{
+      return
+    }
   }
   pushFA(){
     this.notePush.push('fa')
-    this.challengeService.myFa.play();
+    if (this.difficultyToShow == true){
+      this.challengeService.myFa.play();
+    }
+    else{
+      return
+    }
   }
   pushSOL(){
     this.notePush.push('sol')
-    this.challengeService.mySol.play();
+    if (this.difficultyToShow == true){
+      this.challengeService.mySol.play();
+    }
+    else{
+      return
+    }
   }
   pushLA(){
     this.notePush.push('la')
-    this.challengeService.myLa.play();
+    if (this.difficultyToShow == true){
+      this.challengeService.myLa.play();
+    }
+    else{
+      return
+    }
   }
   pushSI(){
     this.notePush.push('si')
-    this.challengeService.mySi.play();
+    if (this.difficultyToShow == true){
+      this.challengeService.mySi.play();
+    }
+    else{
+      return
+    }
   }
 
   private sleep(ms) {
