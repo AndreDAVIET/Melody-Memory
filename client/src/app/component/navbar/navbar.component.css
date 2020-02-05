@@ -1,14 +1,17 @@
 .desktopVersion{
-    background-color: #EE964B;
+    background-color: #083D77;
     color: #dbdcdf;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 .menu{
-    list-style-type: none;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     margin: 0%;
     padding: 0px;
+    list-style-type: none;
+    justify-content: space-around;
 }
 
 .logout{
@@ -33,11 +36,7 @@ img{
     margin-bottom: -4px;
 }
 
-@font-face{
-    font-family: "malvie";
-    src: url(";./../../../../assets/Malvie.otf") format('truetype');
-}
 
 h1{
-    font-family: "malvie";
+    font-family: 'Oswald', sans-serif;
 }

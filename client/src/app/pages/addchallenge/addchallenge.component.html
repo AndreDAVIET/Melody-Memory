@@ -1,23 +1,25 @@
-<h2>Ajouter un Challenge</h2>
-<mat-card class="example-card">
-    <form [formGroup]="addForm" (ngSubmit)="addChallenge()"> 
-        <div class="formRegister">
-                <div class="divInterne">
-                    <label class='labelPetit'>Nom du challenge :</label>
-                    <input formControlName="name">
-                </div>
-                <div class="divInterne">
-                    <label class='labelPetit'>Sequence :</label>
-                    <input formControlName="sequence">
-                </div>
-                <div class="divInterne">
-                        <label class='labelPetit'>Melodie :</label>
-                        <input formControlName="melodie">
-                </div>
-                <div class="divInterne">
-                    <button mat-raised-button routerLink='/gamepage' >Retour</button>
-                    <button mat-raised-button type="submit" [disabled]="!addForm.valid">Ajouter un Challenge</button>
-                </div>
-        </div>
-    </form>
-</mat-card>
+<div class='total'>
+    <h2>Ajouter un Challenge</h2>
+    <mat-card class="example-card">
+        <form [formGroup]="addForm" (ngSubmit)="addChallenge()"> 
+            <div class="formRegister">
+                    <div class="divInterne">
+                        <label >Challenge :</label>
+                        <input formControlName="name">
+                    </div>
+                    <div class="divInterne">
+                        <label>Sequence :</label>
+                        <input formControlName="sequence">
+                    </div>
+                    <div class="divInterne">
+                            <label class='labelPetit'>Melodie :</label>
+                            <input formControlName="melodie">
+                    </div>
+                    <div class="divInterne">
+                        <button mat-raised-button class="allButton" routerLink='/gamepage' >Retour</button>
+                        <button mat-raised-button class="allButton" type="submit" [disabled]="!addForm.valid">Ajouter un Challenge</button>
+                    </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

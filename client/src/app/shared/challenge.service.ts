@@ -78,6 +78,8 @@ export class ChallengeService {
   };
 
   getStatusOK(challengeId,userId){
+    console.log(challengeId)
+    console.log(userId)
     return this.http.post<any>(`${this.baseUrl}/challenge/status`, challengeId,userId);
   }
 

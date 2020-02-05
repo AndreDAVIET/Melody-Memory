@@ -31,7 +31,7 @@ export const StatusController = (app: Application) => {
      */
      router.get('/:id/done',  (req: Request, res: Response) => {
       const user_id = parseInt(req.params.id);
-      console.log(user_id)
+
       statusService.getById(user_id).then(result => {
             res.send(result);
         })
@@ -46,7 +46,7 @@ export const StatusController = (app: Application) => {
     router.post('/', (req: Request, res: Response) => {
       const challenge_id: number = req.body.challengeId; // Automatically transform in a Challenge Post object
       const user_id: number = req.body.userId;
-
+      console.log(req.body)
       console.log(challenge_id);
       console.log(user_id)
 

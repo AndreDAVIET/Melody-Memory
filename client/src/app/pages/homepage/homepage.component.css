@@ -1,31 +1,41 @@
 .gamePage{
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
-    font-family: "malvie";
+    font-family: 'Oswald', sans-serif;
     font-size: 32px;
     text-align: justify;
     margin: auto;
+    padding: 100px 0;
+    
+}
+
+#game{
+    width: 100%;
+    background-color: rgba(235,235,211,0.5);
 }
 
 p{
     text-align: center;
+    margin-top: 0;
 }
 
-@font-face{
-    font-family: "malvie";
-    src: url(";./../../../../assets/Malvie.otf") format('truetype');
+.title p{
+    font-weight: bold;
 }
+
 
 .mat-card{
-    font-family: "malvie";
+    font-family: 'Oswald', sans-serif;
     font-size: 32px;
     margin-bottom: 32px;
     text-align: center;
 }
 
 .allButton{
-    background-color: #1C222B;
+    background-color: #083D77;
     color: #B9BBB5;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .buttonDifficulty{

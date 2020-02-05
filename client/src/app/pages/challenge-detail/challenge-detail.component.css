@@ -1,7 +1,7 @@
 .challengeDetail{
     width: 80%;
     margin: 0 auto;
-    font-family: "malvie";
+    font-family: 'Oswald', sans-serif;
     font-size: 24px;
     display: flex;
     flex-direction: column;
@@ -11,19 +11,23 @@
 
 h3{
     text-align: center;
+    padding-top: 200px;
 }
 
-@font-face{
-    font-family: "malvie";
-    src: url(";./../../../../assets/Malvie.otf") format('truetype');
-}
 
 .lancementMusique{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    width: 60%;
+    align-items: center;
+    margin: 0 auto;
 }
 
+.allButton{
+    background-color: #083D77;
+    color: #B9BBB5;
+}
 
 
 .mat-raised-button{

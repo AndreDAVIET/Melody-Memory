@@ -1,0 +1,25 @@
+h2{
+    margin: 0 auto;
+    padding-top: 200px;
+}
+
+.delete{
+    height: 100vh;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+}
+
+.allButton{
+    background-color: #083D77;
+    color: #B9BBB5;
+    margin-left: 8px;
+    margin-right: 8px;
+}

@@ -1,23 +1,22 @@
-<div class="gamePage">
-    <p>Bienvenue sur votre page de jeu.</p>
-    <p>Vous avez {{scoreUser.score}} points</p>
-    <p>Deux mode de jeux s'offrent a vous! Lequel choisirez vous ?</p>
-    <div class='buttonDifficulty'>
-        <button mat-raised-button (click)='getDifficulty()' [disabled]="!difficultyEasy">Facile</button>
-        <button mat-raised-button (click)='getDifficulty()'  [disabled]="difficultyEasy">Difficile</button>
-    </div>
-    <mat-card *ngFor='let challenge of challenges'>
-        <p>{{challenge.name}}</p>
-        <button mat-raised-button class="allButton" (click)="onClickedChallenge(challenge)">Go</button>
-        <button mat-raised-button class="allButton" (click)="onDeleteChallenge(challenge)" *ngIf=disabledAdmin >Supprimer</button>
-        <button mat-raised-button class="allButton" (click)="onModifyChallenge(challenge)" *ngIf=disabledAdmin >Modifier</button>
-    </mat-card>
-    <div class='ajout'>
-        <button mat-raised-button class="allButton" routerLink='/ajout' *ngIf=disabledAdmin >Ajouter</button>
-        
+<div id='game'>
+    <div class="gamePage">
+        <div class="title">
+            <p>Bienvenue sur votre page de jeu.</p>
+            <p>Deux mode de jeux s'offrent a vous! Lequel choisirez vous ?</p>
+        </div>
+        <div class='buttonDifficulty'>
+            <button mat-raised-button class="allButton" (click)='getDifficulty()' [disabled]="!difficultyEasy">Passer en mode Difficile</button>
+            <button mat-raised-button class="allButton" (click)='getDifficulty()'  [disabled]="difficultyEasy">Passer en mode Facile</button>
+        </div>
+        <mat-card *ngFor='let challenge of challenges'>
+            <p>{{challenge.name}}</p>
+            <button mat-raised-button class="allButton" (click)="onClickedChallenge(challenge)">Go</button>
+            <button mat-raised-button class="allButton" (click)="onDeleteChallenge(challenge)" *ngIf=disabledAdmin >Supprimer</button>
+            <button mat-raised-button class="allButton" (click)="onModifyChallenge(challenge)" *ngIf=disabledAdmin >Modifier</button>
+        </mat-card>
+        <div class='ajout'>
+            <button mat-raised-button class="allButton" routerLink='/ajout' *ngIf=disabledAdmin >Ajouter</button>
+            
+        </div>
     </div>
 </div>
-
-    <!--     <button (click)='onModeFacile()'>Mode facile</button>
-        <button (click)='onModeDifficile()'>Mode difficile</button>
-        <button display="disabledAdmin">test</button> -->

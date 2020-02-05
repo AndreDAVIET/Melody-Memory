@@ -1,4 +1,8 @@
-<h2>Supprimer {{ challengeToShow.name}}</h2>
-<p>Etes vous sur de supprimer {{ challengeToShow.name}} </p>
-<button mat-raised-button (click)="onDeletedChallenge(challengeToShow)" >Supprimer</button>
-<button mat-raised-button routerLink='/gamepage' >Retour</button>
+<div class="delete">
+    <h2>Supprimer {{ challengeToShow.name}}</h2>
+    <p>Etes vous sur de supprimer {{ challengeToShow.name}} </p>
+    <div>
+        <button mat-raised-button class="allButton" (click)="onDeletedChallenge(challengeToShow)" >Supprimer</button>
+        <button mat-raised-button class="allButton" routerLink='/gamepage' >Retour</button>
+    </div>
+</div>

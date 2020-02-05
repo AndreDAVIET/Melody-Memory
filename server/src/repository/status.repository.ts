@@ -53,10 +53,7 @@ export class StatusRepository {
       return this.connection.query(
         `INSERT INTO ${this.table} (challenge_id, user_id, status) VALUES (?,?,?)`,
         [challenge_id,  user_id, "1"]
-      ).then((result: any) => {
-        // After an insert the insert id is directly passed in the promise
-        return this.findById(result);
-      });
+      ).then((result: any) => (result));
     }
 
     /**
